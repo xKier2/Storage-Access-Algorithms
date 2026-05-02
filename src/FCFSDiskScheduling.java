@@ -5,18 +5,7 @@ public class FCFSDiskScheduling {
         System.out.println("Head: " + head);
         System.out.println();
 
-        System.out.print("Sample Move Numbers: \n");
         int[] request = Main.requests();
-
-        for (int i = 0; i < request.length; i++) {
-            System.out.print(request[i]);
-
-            if (i == request.length - 2) {
-                System.out.print(", and ");
-            } else if (i < request.length - 1) {
-                System.out.print(", ");
-            }
-        }
         System.out.println("\n");
 
         System.out.println("Move Numbers arranged in FCFS:");
