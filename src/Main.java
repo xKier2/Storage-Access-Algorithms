@@ -1,7 +1,4 @@
-import Algorithms.CSCANDiskScheduling;
-import Algorithms.FCFSDiskScheduling;
-import Algorithms.SCANDiskScheduling;
-import Algorithms.STFDiskScheduling;
+import Algorithms.*;
 
 import java.util.Scanner;
 
@@ -14,7 +11,7 @@ public class Main {
         int firstTrack = 0;
         int lastTrack = 300;
 
-        System.out.print("Enter an Algorithm: \n1. FCFS\n2. STF\n3. SCAN\n4. C-SCAN\n: ");
+        System.out.print("Enter an Algorithm: \n1. FCFS\n2. STF\n3. SCAN\n4. C-SCAN\n5. C-LOOK\n: ");
         String algorithm = input.nextLine().toLowerCase();
 
         System.out.println("\nFirst Cylinder Track: " + firstTrack);
@@ -54,10 +51,19 @@ public class Main {
                 System.out.println("\n");
 
                 CSCANDiskScheduling.CSCAN(head, firstTrack, lastTrack, myRequests);
+
                 break;
 
-            case "default":
+            case "c-look":
+            case "5":
+                myRequests = requests();
+                System.out.println("\n");
 
+                CLOOKDiskScheduling.CLOOK(head, firstTrack, lastTrack, myRequests);
+
+                break;
+            case "default":
+                System.out.print("Enter a valid choice!");
                 break;
         }
     }

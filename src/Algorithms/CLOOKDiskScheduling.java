@@ -2,18 +2,15 @@ package Algorithms;
 
 import java.util.*;
 
-public class CSCANDiskScheduling {
+public class CLOOKDiskScheduling {
 
-    public static void CSCAN(int head, int firstTrack, int lastTrack, int[] requests) {
+    public static void CLOOK(int head, int firstTrack, int lastTrack, int[] requests) {
         int totalSeekCount = 0;
         int currentHead = head;
 
         List<Integer> left = new ArrayList<>();
         List<Integer> right = new ArrayList<>();
         List<Integer> seekSequence = new ArrayList<>();
-
-        left.add(firstTrack);
-        right.add(lastTrack);
 
         for (int r : requests) {
             if (r <= head) {
@@ -44,13 +41,14 @@ public class CSCANDiskScheduling {
             currentHead = r;
         }
 
-        currentHead = lastTrack;
-        seekSequence.add(lastTrack);
-        totalSeekCount += Math.abs(lastTrack - firstTrack);
+        if (!right.isEmpty()) {
+            int highest = right.get(right.size() - 1);
+            totalSeekCount += Math.abs(highest - currentHead);
+            currentHead = highest;
+        }
 
         for (int i = right.size() - 1; i >= 0; i--) {
             int r = right.get(i);
-            if (r == lastTrack) continue;
             seekSequence.add(r);
             totalSeekCount += Math.abs(r - currentHead);
             currentHead = r;
@@ -60,7 +58,7 @@ public class CSCANDiskScheduling {
     }
 
     private static void printFormattedOutput(int totalSeek, List<Integer> sequence) {
-        System.out.println("Move Numbers arranged in C-SCAN:");
+        System.out.println("Move Numbers arranged in C-LOOK:");
         for (int i = 0; i < sequence.size(); i++) {
             System.out.print(sequence.get(i));
             if (i == sequence.size() - 2) {

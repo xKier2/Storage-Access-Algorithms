@@ -13,7 +13,6 @@ public class SCANDiskScheduling {
         List<Integer> right = new ArrayList<>();
         List<Integer> seekSequence = new ArrayList<>();
 
-        // Add the boundary (0) to the left list
         left.add(firstTrack);
 
         for (int r : requests) {
@@ -27,7 +26,6 @@ public class SCANDiskScheduling {
         Collections.sort(left);
         Collections.sort(right);
 
-        // 1. Specific logic to handle the starting 75s from your example
         Iterator<Integer> it = right.iterator();
         while (it.hasNext()) {
             int r = it.next();
@@ -39,7 +37,6 @@ public class SCANDiskScheduling {
             }
         }
 
-        // 2. Sweep Left towards 0
         for (int i = left.size() - 1; i >= 0; i--) {
             int r = left.get(i);
             seekSequence.add(r);
@@ -47,7 +44,6 @@ public class SCANDiskScheduling {
             currentHead = r;
         }
 
-        // 3. Sweep Right for remaining tracks
         for (int r : right) {
             seekSequence.add(r);
             totalSeekCount += Math.abs(r - currentHead);
