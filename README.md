@@ -1,6 +1,6 @@
 # Disk Scheduling
 ***
-This project is a Java-based simulator designed to showcase how **Operating Systems** manage Disk I/O requests. The goal is to calculate the efficiency of various disk scheduling algorithms by tracking the physical movement of the disk's Read/Write head.
+This project is a Java-based designed to showcase how **Operating Systems** manage Disk I/O requests. The goal is to calculate the efficiency of various disk scheduling algorithms by tracking the physical movement of the disk's Read/Write head.
 
 ### Why Disk Scheduling?
 Hard drives have a physical head that moves across cylinders to read data. To keep a system responsive, the OS must decide the most efficient order to visit these tracks. This simulator calculates the **Total Seek Operations** (the cumulative distance the head travels) for several key strategies.
@@ -57,3 +57,10 @@ javac Main.java Algorithms/*.java
 java Main
 ```
 
+### Usage
+***
+Once the program is running, follow these steps to interact with the simulator:
+
+1. **Select an Algorithm:** The console will prompt you to choose a scheduling strategy. You can type the name (e.g., `scan`) or the corresponding number (e.g., `3`).
+2. **Execution:** The program will display the First and Last Cylinder tracks, followed by the sample requests being processed.
+3. **Analyze Results:** The output will show the **Move Numbers arranged** (the final path) and the **Total Seek Operations** (the calculated efficiency).
