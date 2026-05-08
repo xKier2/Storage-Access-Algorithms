@@ -1,4 +1,4 @@
-# Disk Scheduling Simulator
+# Disk Scheduling
 <hr>
 This project is a Java-based simulator designed to showcase how **Operating Systems** manage Disk I/O requests. The goal is to calculate the efficiency of various disk scheduling algorithms by tracking the physical movement of the disk's Read/Write head.
 
