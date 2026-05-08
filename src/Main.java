@@ -1,12 +1,55 @@
-public class Main {
-    static void main() {
-        int head = 50;
+import Algorithms.FCFSDiskScheduling;
+import Algorithms.SCANDiskScheduling;
+import Algorithms.STFDiskScheduling;
 
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner input = new Scanner(System.in);
+        int[] myRequests;
+        int head = 50;
         int firstTrack = 0;
         int lastTrack = 300;
 
-        FCFSDiskScheduling.FCFS(head, firstTrack, lastTrack);
-        STFDiskScheduling.STF(head, firstTrack, lastTrack);
+        System.out.print("Enter an Algorithm: \n1. FCFS\n2. STF\n3. SCAN: ");
+        String algorithm = input.nextLine().toLowerCase();
+
+        System.out.println("\nFirst Cylinder Track: " + firstTrack);
+        System.out.println("Last Cylinder Track: " + lastTrack + "\n");
+
+        switch(algorithm) {
+            case "fcfs":
+            case "1":
+                myRequests = requests();
+                System.out.println("\n");
+
+                FCFSDiskScheduling.FCFS(head, myRequests);
+
+                break;
+
+            case "stf":
+            case "2":
+                myRequests = requests();
+                System.out.println("\n");
+
+                STFDiskScheduling.STF(head, myRequests);
+
+                break;
+
+            case "scan":
+            case "3":
+                myRequests = requests();
+                System.out.println("\n");
+
+                SCANDiskScheduling.SCAN(head, firstTrack, myRequests);
+
+                break;
+            case "default":
+
+                break;
+        }
     }
 
     public static int[] requests() {
@@ -22,7 +65,6 @@ public class Main {
                 System.out.print(", ");
             }
         }
-
         return request;
     }
 }

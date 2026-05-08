@@ -1,18 +1,14 @@
-import org.jetbrains.annotations.NotNull;
+package Algorithms;
 
+import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 
 public class STFDiskScheduling {
-    public static void STF(int head, int firstTrack, int lastTrack) {
-        System.out.println("First Cylinder Track: " + firstTrack);
-        System.out.println("Last Cylinder Track: " + lastTrack);
-        System.out.println();
+    public static void STF(int head, int[] request) {
 
-        int[] request = Main.requests();
-        System.out.println("\n");
         ArrayList<Integer> stfOrder = getIntegers(head, request);
 
-        System.out.println("Move Numbers arranged in STF:");
+        System.out.println("\nMove Numbers arranged in STF:");
         for (int i = 0; i < stfOrder.size(); i++) {
             System.out.print(stfOrder.get(i));
             if (i == stfOrder.size() - 2) {
@@ -36,7 +32,8 @@ public class STFDiskScheduling {
 
         while (!requestList.isEmpty()) {
             int closestIndex = 0;
-            int minDistance = Math.abs(requestList.getFirst() - currentPos);
+
+            int minDistance = Math.abs(requestList.get(0) - currentPos);
 
             for (int i = 1; i < requestList.size(); i++) {
                 int distance = Math.abs(requestList.get(i) - currentPos);
