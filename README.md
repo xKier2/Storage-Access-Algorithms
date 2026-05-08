@@ -1,12 +1,12 @@
 # Disk Scheduling
-<hr>
+***
 This project is a Java-based simulator designed to showcase how **Operating Systems** manage Disk I/O requests. The goal is to calculate the efficiency of various disk scheduling algorithms by tracking the physical movement of the disk's Read/Write head.
 
 ### Why Disk Scheduling?
-<br>
 Hard drives have a physical head that moves across cylinders to read data. To keep a system responsive, the OS must decide the most efficient order to visit these tracks. This simulator calculates the **Total Seek Operations** (the cumulative distance the head travels) for several key strategies.
 
 ### Supported Algorithms
+***
 I have implemented five of the most common scheduling strategies:
 
 * **FCFS (First-Come, First-Served):** The simplest approach; requests are handled in the exact order they arrive.
@@ -16,7 +16,7 @@ I have implemented five of the most common scheduling strategies:
 * **C-LOOK:** An optimized version of C-SCAN that "looks" ahead; it reverses direction as soon as the last request is met, avoiding unnecessary travel to the disk edges.
 
 ### Performance Calculation
-<br>
+***
 The primary metric for efficiency is the **Total Seek Operations (TSO)**. This is calculated by summing the absolute differences between the current track and the next track in the sequence:
 
 $$TSO = \sum_{i=1}^{n} |Track_{i} - Track_{i-1}|$$
